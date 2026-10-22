@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#07100f">
+  <title>FC Manager 26 — Anti-Gravity Soccer</title>
+  <link rel="stylesheet" href="index.css">
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js"
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="ambient ambient-a"></div>
+  <div class="ambient ambient-b"></div>
+
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#" aria-label="FC Manager home">
+        <span class="brand-mark">FC<span>26</span></span>
+        <span class="brand-copy">
+          <strong>ANTI-GRAVITY</strong>
+          <small>FOOTBALL UNIVERSE</small>
+        </span>
+      </a>
+
+      <div class="season-pill">
+        <span class="live-dot"></span> СЕЗОН 01 <i>•</i> ДИВИЗИОН 3
+      </div>
+
+      <div class="top-actions">
+        <div class="currency">
+          <span class="coin">◆</span>
+          <strong id="coins">12,500</strong>
+          <small>FC COINS</small>
+        </div>
+        <div class="user-avatar">AM</div>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="club-badge">
+          <div class="badge-shield" id="clubBadge">✦</div>
+          <div>
+            <strong id="clubNameSide">NOVA UNITED</strong>
+            <small>YOUR CLUB</small>
+          </div>
+        </div>
+
+        <div class="nav-label">МЕНЮ КЛУБА</div>
+
+        <nav class="nav-list">
+          <button class="nav-item active" data-view="dashboard"><span>⌂</span> Главная <b>01</b></button>
+          <button class="nav-item" data-view="squad"><span>♙</span> Мой состав <b>02</b></button>
+          <button class="nav-item" data-view="transfers"><span>⇄</span> Трансферы <b>03</b></button>
+          <button class="nav-item" data-view="challenges"><span>◎</span> Сборные и клубы <b>04</b></button>
+          <button class="nav-item" data-view="match"><span>▶</span> Играть матч <b class="nav-hot">LIVE</b></button>
+          <button class="nav-item" data-view="trophies"><span>♜</span> Зал славы <b>06</b></button>
+        </nav>
+
+        <div class="sidebar-bottom">
+          <div class="club-rating">
+            <small>ОБЩИЙ РЕЙТИНГ</small>
+            <div><strong>78</strong><span>OVR</span><em>▲ +2</em></div>
+            <div class="rating-bar"><i></i></div>
+          </div>
+          <div class="sidebar-foot">
+            <span class="status-dot"></span> Все системы работают <span>v1.0</span>
+          </div>
+        </div>
+      </aside>
+
+      <main class="main-content">
+        <section class="view active" id="view-dashboard">
+          <div class="welcome-row">
+            <div>
+              <p class="eyebrow">ЧЕТВЕРГ, 22 ОКТЯБРЯ 2026 <span>/ MATCH HUB</span></p>
+              <h1>Время <span>побеждать.</span></h1>
+              <p class="subheading">Твой клуб. Твои правила. Твоя легенда начинается здесь.</p>
+            </div>
+            <button class="primary-btn" data-goto="match">▶ <span>НАЧАТЬ МАТЧ</span><b>↗</b></button>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-overlay"></div>
+            <div class="hero-content">
+              <div class="match-tag">
+                <span class="live-dot"></span> СЛЕДУЮЩИЙ МАТЧ
+                <span class="tag-line"></span> ЛИГА • ТУР 04
+              </div>
+              <h2>MAKE<br><span>HISTORY.</span></h2>
+              <p>Каждая легенда начинается с одного матча.</p>
+              <div class="opponent-row">
+                <div class="team-logo home-logo">NU</div>
+                <div class="versus">VS</div>
+                <div class="team-logo away-logo">FC</div>
+                <div class="opponent-info">
+                  <small>СОПЕРНИК</small>
+                  <strong>METRO CITY FC</strong>
+                  <span>Рейтинг команды: 74 OVR</span>
+                </div>
+              </div>
+              <button class="outline-btn" data-goto="match">ПЕРЕЙТИ К МАТЧУ <span>↗</span></button>
+            </div>
+            <div class="hero-stat">
+              <small>СЛЕДУЮЩИЙ МАТЧ</small>
+              <strong>04 <span>/ 12</span></strong>
+              <span class="hero-stat-line"></span>
+              <small>ЦЕЛЬ СЕЗОНА</small>
+              <b>ТОП-3 ДИВИЗИОНА</b>
+            </div>
+          </div>
+
+          <div class="section-heading">
+            <div><p class="eyebrow">YOUR JOURNEY</p><h2>Обзор клуба</h2></div>
+            <span class="muted">СЕЗОН 2026 / 27</span>
+          </div>
+
+          <div class="stats-grid">
+            <article class="stat-card">
+              <div class="stat-icon green">♜</div>
+              <small>ПОБЕДЫ</small>
+              <strong id="wins">2 <em>/ 3</em></strong>
+              <div class="mini-track"><i style="width:66%"></i></div>
+              <span class="stat-foot">Последние 5 матчей: <b class="green-text">W W L W</b></span>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon cyan">⚽</div>
+              <small>ЗАБИТО ГОЛОВ</small>
+              <strong id="goals">8</strong>
+              <div class="sparkline"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+              <span class="stat-foot">В среднем <b>2.6</b> за матч</span>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon gold">🏆</div>
+              <small>ТРОФЕИ</small>
+              <strong id="trophyCount">01</strong>
+              <div class="trophy-mini">✦</div>
+              <span class="stat-foot">Твоя история только начинается</span>
+            </article>
+            <article class="stat-card">
+              <div class="stat-icon purple">↗</div>
+              <small>РЫНОЧНАЯ СТОИМОСТЬ</small>
+              <strong>€42.8<em>M</em></strong>
+              <div class="mini-track"><i style="width:78%"></i></div>
+              <span class="stat-foot"><b class="green-text">+12.4%</b> за этот сезон</span>
+            </article>
+          </div>
+
+          <div class="bottom-grid">
+            <article class="panel squad-preview">
+              <div class="panel-heading">
+                <div><p class="eyebrow">THE STARTING XI</p><h3>Ключевые игроки</h3></div>
+                <button class="text-btn" data-goto="squad">ВЕСЬ СОСТАВ ↗</button>
+              </div>
+              <div id="featuredPlayers" class="featured-players"></div>
+            </article>
+
+            <article class="panel objectives">
+              <div class="panel-heading">
+                <div><p class="eyebrow">SEASON TARGETS</p><h3>Цели сезона</h3></div>
+                <span class="target-count">1 / 3</span>
+              </div>
+              <div class="objective">
+                <span class="objective-check">✓</span>
+                <div><strong>Выиграть 2 матча</strong><small>Награда: 1,500 FC Coins</small></div>
+                <span class="done-label">ВЫПОЛНЕНО</span>
+              </div>
+              <div class="objective">
+                <span class="objective-empty"></span>
+                <div>
+                  <strong>Забить 10 голов</strong>
+                  <small>Текущий прогресс: 8 / 10</small>
+                  <div class="mini-track"><i style="width:80%"></i></div>
+                </div>
+                <b>80%</b>
+              </div>
+              <div class="objective">
+                <span class="objective-empty"></span>
+                <div><strong>Подписать нового игрока</strong><small>Награда: редкий пак</small></div>
+                <b>0%</b>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="view-squad">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">SQUAD MANAGEMENT</p>
+              <h1>Мой <span>состав.</span></h1>
+              <p class="subheading">Выбирай игроков, меняй тактику и собирай команду мечты.</p>
+            </div>
+            <button class="primary-btn" id="formationBtn">▦ <span>СХЕМА: 4-3-3</span></button>
+          </div>
+
+          <div class="squad-layout">
+            <div class="pitch-panel panel">
+              <div class="pitch-top"><span>● ОСНОВНОЙ СОСТАВ</span><span>4-3-3 ATTACK</span></div>
+              <div class="tactical-pitch" id="tacticalPitch">
+                <div class="pitch-lines">
+                  <div class="center-circle"></div>
+                  <div class="center-line"></div>
+                  <div class="penalty top"></div>
+                  <div class="penalty bottom"></div>
+                  <div class="goal top"></div>
+                  <div class="goal bottom"></div>
+                </div>
+                <div id="pitchPlayers"></div>
+              </div>
+              <div class="bench-label">ЗАПАСНЫЕ <span>Кликни на две карточки, чтобы поменять игроков</span></div>
+              <div id="benchPlayers" class="bench-players"></div>
+            </div>
+
+            <aside class="panel player-details" id="playerDetails">
+              <p class="eyebrow">PLAYER PROFILE</p>
+              <div class="detail-avatar">AM</div>
+              <h2>Выбери игрока</h2>
+              <p class="muted">Нажми на карточку игрока на поле или на скамейке, чтобы увидеть характеристики.</p>
+              <button class="outline-btn full" id="createPlayerBtn">＋ СОЗДАТЬ ИГРОКА</button>
+            </aside>
+          </div>
+        </section>
+
+        <section class="view" id="view-transfers">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">TRANSFER MARKET</p>
+              <h1>Трансферы <span>& таланты.</span></h1>
+              <p class="subheading">Найди будущую звезду или создай собственного игрока.</p>
+            </div>
+            <button class="primary-btn" id="createPlayerBtn2">＋ <span>СОЗДАТЬ ИГРОКА</span></button>
+          </div>
+          <div class="transfer-grid" id="transferGrid"></div>
+        </section>
+
+        <section class="view" id="view-challenges">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">WORLD FOOTBALL</p>
+              <h1>Выбери <span>вызов.</span></h1>
+              <p class="subheading">Представь страну или выведи клуб на международную арену.</p>
+            </div>
+          </div>
+          <div class="challenge-grid" id="challengeGrid"></div>
+        </section>
+
+        <section class="view" id="view-match">
+          <div class="page-heading match-page-heading">
+            <div>
+              <p class="eyebrow">MATCHDAY EXPERIENCE / 3D ENGINE</p>
+              <h1>Выходи <span>на поле.</span></h1>
+              <p class="subheading">WASD — движение · Shift — ускорение · Space — удар · U — пас · J — пас вразрез</p>
+            </div>
+            <div class="match-actions">
+              <button class="outline-btn" id="pauseBtn">Ⅱ ПАУЗА</button>
+              <button class="primary-btn" id="restartBtn">↻ <span>НОВЫЙ МАТЧ</span></button>
+            </div>
+          </div>
+
+          <div class="game-frame panel">
+            <div id="gameCanvasWrap">
+              <div class="stadium-loading" id="gameLoading">
+                <div class="loader-ring"></div>
+                <strong>ЗАГРУЗКА СТАДИОНА</strong>
+                <small>INITIALIZING 3D MATCH ENGINE</small>
+              </div>
+
+              <div class="game-top-hud">
+                <div class="hud-team">
+                  <span class="hud-crest">NU</span>
+                  <div><b>NOVA UNITED</b><small>HOME</small></div>
+                </div>
+                <div class="scoreboard">
+                  <span id="homeScore">0</span><i>:</i><span id="awayScore">0</span>
+                  <small id="matchClock">00:00</small>
+                </div>
+                <div class="hud-team away">
+                  <div><b>METRO CITY</b><small>AWAY</small></div>
+                  <span class="hud-crest away-crest">MC</span>
+                </div>
+              </div>
+
+              <div class="game-event" id="gameEvent"></div>
+
+              <div class="game-bottom-hud">
+                <div class="mini-map">
+                  <span>TACTICAL MAP</span>
+                  <canvas id="miniMap" width="160" height="92"></canvas>
+                </div>
+                <div class="controls-hint">
+                  <span><kbd>W</kbd><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd> MOVE</span>
+                  <span><kbd>SHIFT</kbd> SPRINT</span>
+                  <span><kbd>SPACE</kbd> SHOOT</span>
+                  <span><kbd>U</kbd> PASS</span>
+                </div>
+                <div class="power-meter">
+                  <span>SHOT POWER</span>
+                  <div><i id="shotPower"></i></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="game-footer">
+              <span><i class="status-dot"></i> 3D ENGINE ONLINE</span>
+              <span>RENDER: THREE.JS <i>•</i> AUTOSAVE ENABLED</span>
+              <button id="soundBtn">♫ SOUND ON</button>
+            </div>
+          </div>
+
+          <div class="match-bottom">
+            <article class="panel">
+              <p class="eyebrow">MATCH OBJECTIVE</p>
+              <h3>Забей первый гол</h3>
+              <p class="muted">Управляй игроком в зелёной форме. Подойди к мячу и нажми Space, чтобы ударить по воротам соперника.</p>
+            </article>
+            <article class="panel">
+              <p class="eyebrow">MATCH TIPS</p>
+              <h3>Управление</h3>
+              <p class="muted">Удерживай Shift для ускорения. Пас помогает передвинуть мяч вперёд. Используй стрелки или WASD.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="view" id="view-trophies">
+          <div class="page-heading">
+            <div>
+              <p class="eyebrow">LEGACY & HONOUR</p>
+              <h1>Зал <span>славы.</span></h1>
+              <p class="subheading">Каждый сезон — новая страница истории клуба.</p>
+            </div>
+          </div>
+
+          <div class="trophy-hero panel">
+            <div class="trophy-glow">🏆</div>
+            <div>
+              <p class="eyebrow">YOUR LEGACY</p>
+              <h2>История пишется <span>победами.</span></h2>
+              <p class="muted">Заверши сезон в тройке лидеров, чтобы получить трофей и награду.</p>
+            </div>
+            <div class="trophy-total"><strong id="trophyTotal">01</strong><small>ТРОФЕЕВ</small></div>
+          </div>
+
+          <div class="section-heading">
+            <div><p class="eyebrow">CABINET</p><h2>Коллекция трофеев</h2></div>
+          </div>
+          <div class="trophy-grid" id="trophyGrid"></div>
+
+          <div class="panel season-panel">
+            <div class="panel-heading">
+              <div><p class="eyebrow">LEAGUE TABLE</p><h3>Таблица дивизиона</h3></div>
+              <span class="muted">ТУР 04 / 12</span>
+            </div>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>#</th><th>КЛУБ</th><th>И</th><th>В</th><th>Н</th><th>П</th><th>ГЗ</th><th>ОЧКИ</th></tr>
+                </thead>
+                <tbody id="leagueTable"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <footer class="site-footer">
+          <span>© 2026 FC MANAGER 26</span>
+          <span>BUILT FOR THE NEXT GENERATION <b>✦</b></span>
+          <span>ANTI-GRAVITY ENGINE / DEMO</span>
+        </footer>
+      </main>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="clubModal">
+    <div class="modal panel">
+      <button class="modal-close" data-close>×</button>
+      <p class="eyebrow">BUILD YOUR LEGACY</p>
+      <h2>Создай свой <span>клуб.</span></h2>
+      <p class="muted">Настрой имя и цвета команды. Прогресс сохраняется в браузере.</p>
+      <form id="clubForm">
+        <label>Название клуба
+          <input id="clubInput" maxlength="22" value="NOVA UNITED" required>
+        </label>
+        <label>Цвет клуба
+          <select id="clubColor">
+            <option value="#b7ff39">Cyber Green</option>
+            <option value="#31d8ff">Electric Cyan</option>
+            <option value="#ffb547">Solar Gold</option>
+            <option value="#c18bff">Ultra Violet</option>
+          </select>
+        </label>
+        <label>Эмблема
+          <select id="clubEmblem">
+            <option>✦</option><option>⚡</option><option>◆</option><option>★</option><option>♜</option>
+          </select>
+        </label>
+        <button class="primary-btn full" type="submit">СОХРАНИТЬ КЛУБ ↗</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="modal-backdrop" id="playerModal">
+    <div class="modal panel">
+      <button class="modal-close" data-close>×</button>
+      <p class="eyebrow">CREATE A LEGEND</p>
+      <h2>Создай <span>игрока.</span></h2>
+      <form id="playerForm">
+        <label>Имя и фамилия
+          <input id="newPlayerName" maxlength="24" placeholder="Например, Alex Morgan" required>
+        </label>
+        <div class="form-row">
+          <label>Позиция
+            <select id="newPlayerPos">
+              <option>FWD</option><option>MID</option><option>DEF</option><option>GK</option>
+            </select>
+          </label>
+          <label>Номер
+            <input id="newPlayerNumber" type="number" min="1" max="99" value="27">
+          </label>
+        </div>
+        <label>Национальность
+          <select id="newPlayerCountry">
+            <option value="🇺🇿">Узбекистан</option>
+            <option value="🇦🇷">Аргентина</option>
+            <option value="🇫🇷">Франция</option>
+            <option value="🇧🇷">Бразилия</option>
+            <option value="🇬🇧">Англия</option>
+            <option value="🇪🇸">Испания</option>
+          </select>
+        </label>
+        <label>Стиль игрока
+          <select id="newPlayerStyle">
+            <option value="balanced">Универсал</option>
+            <option value="attack">Атакующий</option>
+            <option value="defense">Защитник</option>
+          </select>
+        </label>
+        <button class="primary-btn full" type="submit">СОЗДАТЬ ИГРОКА — 500 COINS</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast"></div>
+  <script type="module" src="index.js"></script>
+</body>
+</html>
